@@ -1,0 +1,6 @@
+{
+  "site":{
+    "port": 5000,
+    "name": "ISP-Reporter"
+  }
+}
