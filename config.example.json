@@ -1,6 +1,13 @@
 {
   "site":{
     "port": 5000,
-    "name": "ISP-Reporter"
+    "name": "ISP-Reporter",
+    "timezone": "America/Los_Angeles",
+    "db": {
+      "host": "127.0.0.1",
+      "port": 5984,
+      "username": "user",
+      "password": "pass"
+    }
   }
 }
