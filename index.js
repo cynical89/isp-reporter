@@ -30,9 +30,11 @@ app.use(function* error(next) {
 console.log(`${config.site.name} is now listening on port ${config.site.port}`);
 app.listen(config.site.port);
 
-schedule.scheduleJob("0 * * * *", () => {
-	test.executeSpeedTest();
-});
+if (process.env.SERVER_MODE === "testing") {
+	schedule.scheduleJob("0 * * * *", () => {
+		test.executeSpeedTest();
+	});
+}
 
 process.on("SIGINT", function exit() {
 	process.exit();
