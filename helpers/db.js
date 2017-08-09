@@ -68,3 +68,23 @@ exports.removeDocument = function* removeDocument(id, database) {
 		};
 	}
 };
+
+// Runs a view in the database in CouchDB
+exports.runView = function* runView(path, key, database) {
+	try {
+		const db = connectToDatabase(database);
+		const returnVal = {};
+		if (key === null) {
+			returnVal.results = yield db.viewAsync(path);
+		} else {
+			returnVal.results = yield db.viewAsync(path, {key: key});
+		}
+		returnVal.error = false;
+		return returnVal;
+	} catch (err) {
+		return {
+			error: true,
+			message: `DB: View of [${path}] failed`
+		};
+	}
+};

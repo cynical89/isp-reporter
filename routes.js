@@ -12,9 +12,9 @@ const main = require("./controllers/main.js");
 const account = require("./controllers/account.js");
 
 // routes
-
 routes.get("/", main.index);
 routes.get("/reports", main.reportView);
+routes.get("/allTests", main.allTests);
 
 // for passport
 routes.get("/login", account.login);
