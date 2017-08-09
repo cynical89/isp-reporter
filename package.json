@@ -5,38 +5,50 @@
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/.bin/nodemon -e js,hbs index.js",
-    "test-server": "set SERVER_MODE=testing  && node index.js",
-    "report-server": "set SERVER_MODE=web && node index.js",
+    "speed-test": "node ./tests/runtest.js",
+    "prod": "NODE_ENV=production node index.js",
     "test": "./node_modules/.bin/mocha ./tests/ && ./node_modules/.bin/eslint .",
     "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha ./tests/",
     "coveralls": "npm run coverage -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cynical89/isp-reporter.git"
+    "url": "git+https://github.com/snollygolly/koa-starter.git"
   },
   "keywords": [
-    "koa"
+    "koa",
+    "starter",
+    "starter-kit",
+    "handlebars",
+    "passport"
   ],
-  "author": "cynical89 (@cynical89)",
+  "author": "snollygolly (@snollygolly)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cynical89/isp-reporter"
+    "url": "https://github.com/snollygolly/koa-starter/issues"
   },
-  "homepage": "https://github.com/cynical89/isp-reporter#readme",
+  "homepage": "https://github.com/snollygolly/koa-starter#readme",
   "dependencies": {
     "bluebird": "3.4.7",
-    "co": "4.6.0",
+    "chart.js": "^2.6.0",
+    "co": "^4.6.0",
     "cradle": "0.7.1",
-    "koa": "1.1.2",
-    "koa-bodyparser": "2.0.1",
-    "koa-router": "5.3.0",
-    "koa-static-folder": "0.1.6",
+    "koa": "^1.1.2",
+    "koa-bodyparser": "^2.0.1",
+    "koa-generic-session": "^1.10.0",
+    "koa-hbs": "^0.7.0",
+    "koa-passport": "^1.2.0",
+    "koa-redis": "^3.0.0",
+    "koa-router": "^5.3.0",
+    "koa-static-folder": "^0.1.6",
     "moment": "^2.15.2",
     "moment-timezone": "^0.5.9",
-    "node-schedule": "^1.2.3"
+    "node-schedule": "^1.2.3",
+    "passport-github": "^1.0.0"
   },
   "devDependencies": {
+    "shipit-cli": "^3.0.0",
+    "shipit-deploy": "^2.4.0",
     "chai": "^3.5.0",
     "coveralls": "^2.11.15",
     "eslint": "^3.7.1",

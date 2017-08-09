@@ -3,11 +3,11 @@ const testModel = require("../models/speedTest");
 const db = require("./db");
 const co = require("co");
 
-module.exports.executeSpeedTest= function executeSpeedTest() {
+module.exports.executeSpeedTest = function executeSpeedTest() {
     console.log(" -- Starting Operation -- ");
     
 	exec("speedtest --simple", (err, stdout, stderr) => {
-		const arr = stdout.toString().split('\r\n');
+		const arr = stdout.toString().split('\n');
 		const arr2 = [];
 
 		for(const a of arr) {
