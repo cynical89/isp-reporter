@@ -75,7 +75,7 @@ require("./routes");
 console.log(`${config.site.name} is now listening on port ${config.site.port}`);
 app.listen(config.site.port);
 
-if (process.env.SERVER_MODE === "production") {
+if (process.env.NODE_ENV === "production") {
 	test.executeSpeedTest();
 
 	// Run the test every hour, on the hour
