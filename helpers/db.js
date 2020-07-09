@@ -1,6 +1,4 @@
-const co = require("co");
-const Promise = require("bluebird");
-const cradle = Promise.promisifyAll(require("cradle"));
+const cradle = require("cradle");
 const config = require("../config.json");
 
 // A custom Error just for database problems.
@@ -24,10 +22,10 @@ const connectToDatabase = (dbName) => {
 };
 
 // Grabs a document from the database in CouchDB.
-exports.getDocument = function* getDocument(id, database) {
+exports.getDocument = async function getDocument(id, database) {
 	try {
 		const db = connectToDatabase(database);
-		const doc = yield db.getAsync(id);
+		const doc = await db.getAsync(id);
 		doc.error = false;
 		return doc;
 	} catch (err) {
@@ -39,10 +37,10 @@ exports.getDocument = function* getDocument(id, database) {
 };
 
 // Saves a document in the database in CouchDB.
-exports.saveDocument = function* saveDocument(document, database) {
+exports.saveDocument = async function saveDocument(document, database) {
 	try {
 		const db = connectToDatabase(database);
-		const returnVal = yield db.saveAsync(document.id, document);
+		const returnVal = await db.saveAsync(document.id, document);
 		document.id = returnVal.id;
 		document.error = false;
 		return document;
@@ -55,10 +53,10 @@ exports.saveDocument = function* saveDocument(document, database) {
 };
 
 // Removes a document in the database in CouchDB.
-exports.removeDocument = function* removeDocument(id, database) {
+exports.removeDocument = async function removeDocument(id, database) {
 	try {
 		const db = connectToDatabase(database);
-		const returnVal = yield db.removeAsync(id);
+		const returnVal = await db.removeAsync(id);
 		returnVal.error = false;
 		return returnVal;
 	} catch (err) {
@@ -70,14 +68,14 @@ exports.removeDocument = function* removeDocument(id, database) {
 };
 
 // Runs a view in the database in CouchDB
-exports.runView = function* runView(path, key, database) {
+exports.runView = async function runView(path, key, database) {
 	try {
 		const db = connectToDatabase(database);
 		const returnVal = {};
 		if (key === null) {
-			returnVal.results = yield db.viewAsync(path);
+			returnVal.results = await db.viewAsync(path);
 		} else {
-			returnVal.results = yield db.viewAsync(path, {key: key});
+			returnVal.results = await db.viewAsync(path, {key: key});
 		}
 		returnVal.error = false;
 		return returnVal;

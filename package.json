@@ -1,19 +1,16 @@
 {
-  "name": "koa-starter",
+  "name": "isp-reporter",
   "version": "1.0.0",
-  "description": "A starter kit for a slightly opinionated koa project.",
+  "description": "Gunna get the isps.",
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/.bin/nodemon -e js,hbs index.js",
     "speed-test": "node ./tests/runtest.js",
-    "prod": "NODE_ENV=production node index.js",
-    "test": "./node_modules/.bin/mocha ./tests/ && ./node_modules/.bin/eslint .",
-    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha ./tests/",
-    "coveralls": "npm run coverage -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
+    "prod": "NODE_ENV=production node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/snollygolly/koa-starter.git"
+    "url": "git+https://github.com/cynical89/isp-reporter.git"
   },
   "keywords": [
     "koa",
@@ -22,39 +19,32 @@
     "handlebars",
     "passport"
   ],
-  "author": "snollygolly (@snollygolly)",
+  "author": "cynical89 (@cynical89)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/snollygolly/koa-starter/issues"
+    "url": "https://github.com/cynical89/isp-reporter/issues"
   },
-  "homepage": "https://github.com/snollygolly/koa-starter#readme",
+  "homepage": "https://github.com/cynical89/isp-reporter#readme",
   "dependencies": {
-    "bluebird": "3.4.7",
-    "chart.js": "^2.6.0",
-    "co": "^4.6.0",
-    "cradle": "0.7.1",
-    "koa": "^1.1.2",
-    "koa-bodyparser": "^2.0.1",
-    "koa-generic-session": "^1.10.0",
-    "koa-hbs": "^0.7.0",
-    "koa-passport": "^1.2.0",
-    "koa-redis": "^3.0.0",
-    "koa-router": "^5.3.0",
-    "koa-static-folder": "^0.1.6",
-    "moment": "^2.15.2",
-    "moment-timezone": "^0.5.9",
-    "node-schedule": "^1.2.3",
-    "passport-github": "^1.0.0"
+    "chartjs": "^0.3.24",
+    "cradle": "^0.7.1",
+    "koa": "^2.3.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-hbs": "^1.0.0",
+    "koa-mount": "^3.0.0",
+    "koa-passport": "^4.0.1",
+    "koa-redis": "^4.0.1",
+    "koa-router": "^7.2.1",
+    "koa-session": "^5.5.0",
+    "koa-static": "^4.0.1",
+    "moment": "^2.24.0",
+    "node-schedule": "^1.3.2",
+    "passport-auth0": "^1.0.0",
+    "passport-github": "^1.0.0",
+    "timezone": "^1.0.23"
   },
   "devDependencies": {
-    "shipit-cli": "^3.0.0",
-    "shipit-deploy": "^2.4.0",
-    "chai": "^3.5.0",
-    "coveralls": "^2.11.15",
-    "eslint": "^6.8.0",
-    "istanbul": "^0.4.5",
-    "mocha": "^3.1.0",
-    "mocha-lcov-reporter": "^1.2.0",
-    "nodemon": "^1.11.0"
+    "eslint": "^4.9.0",
+    "nodemon": "^1.12.1"
   }
 }

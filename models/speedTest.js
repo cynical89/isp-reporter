@@ -10,7 +10,7 @@ module.exports = {
             ping: data.ping,
             download: data.download,
             upload: data.upload,
-            time: moment().tz(config.site.timezone).format('MMMM Do YYYY, h:mm:ss a')
+            time: moment().tz(config.site.timezone).format('MMMM Do YYYY, HH:mm:ss')
         }
         return score;
     }

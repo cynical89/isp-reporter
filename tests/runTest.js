@@ -3,8 +3,7 @@
 */
 
 const test = require("../helpers/test");
-const co = require("co");
 
-co(function* co() {
-	test.executeSpeedTest();
+(async () => {
+	await test.executeSpeedTest();
 });
